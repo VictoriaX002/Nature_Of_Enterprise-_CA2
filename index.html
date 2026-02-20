@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nature of Enterprise CA2 - Data Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
   </head>
   <body class="container">
     <nav class="navbar bg-body-secondary rounded mb-4">
@@ -17,13 +18,77 @@
     </nav>
     <main>
         <header class="mb-4">
-            <h1 class="display-1">Placeholder</h1>
-            <p class="text-muted">Temporary</p>
+            <h1 class="display-1">Dataset Analysis</h1>
+            <p>Temporary</p>
         </header>
-        <section>
-            <h2></h2>
-            <canvas></canvas>
+        <section class="section-styling">
+            <h1 class="display-1">Dataset Overview</h1>
+            <p>
+                The dataset focuses on summarizing network traffic data across 10 workstations whose IP’s have been coded as 0-9, across a three-month period, from 2006-07-01 to 2006-09-30. It contains 21K rows, with 4 columns: Date, L-ipn (the local IP address), r_asn (The remote asn), f:flows (count of connections for that day) The purpose was to track odd activity on each IP to determine whether the IP was compromised. 
+            </p>
             <section></section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Dataset Cleaning Summary</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Descriptive Statistics Explanation</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Visual Analysis With Graphs</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Basic Machine Learning</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Limitations and Ethics</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Conclusion</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Charts</h1>
+            <div>
+                <canvas id="myChart-0"></canvas>
+                <canvas id="myChart-1"></canvas>
+                <canvas id="myChart-2"></canvas>
+                <canvas id="myChart-3"></canvas>
+                <canvas id="myChart-4"></canvas>
+                <canvas id="myChart-5"></canvas>
+                <canvas id="myChart-6"></canvas>
+                <canvas id="myChart-7"></canvas>
+                <canvas id="myChart-8"></canvas>
+                <canvas id="myChart-9"></canvas>
+            </div>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1">Links</h1>
+            <ul>
+                <li>
+                    <a href="https://tudublin-my.sharepoint.com/:w:/r/personal/x00225508_mytudublin_ie/_layouts/15/Doc.aspx?sourcedoc=%7BFAE2A4D0-B47D-4688-9C64-FC9823C881C0%7D&file=Nature%20of%20Enterprise%20CA%202%20Group%201.docx&action=default&mobileredirect=true&DefaultItemOpen=1&wdOrigin=APPHOME-WEB.DIRECT%2CAPPHOME-WEB.FILEBROWSER.RECENT&wdPreviousSession=bd68194e-2b6e-4e69-96f3-2fb572efc286&wdPreviousSessionSrc=AppHomeWeb&ct=1771609480531" target="_blank">Word Doc of Report</a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/datasets/crawford/computer-network-traffic" target="_blank">Link to Original Dataset</a>
+                </li>
+                <li>
+                    <a href="https://tudublin-my.sharepoint.com/:x:/r/personal/x00225508_mytudublin_ie/_layouts/15/Doc.aspx?sourcedoc=%7B2C13F95A-E7C1-4380-9DC1-8D9C79A8FDCE%7D&file=Nature%20of%20Enterprise%20CA%202%20Group%201.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&wdOrigin=WAC.EXCEL.HOME-BUTTON%2CAPPHOME-WEB.FILEBROWSER.RECENT&wdPreviousSession=c5a4552e-daf4-42ec-9fd4-c2d48c428b68&wdPreviousSessionSrc=AppHomeWeb&ct=1771606153655" target="_blank">Link to Excel Sheet</a>
+                </li>
+            </ul>
+        </section>
+
         </section>
         <article>
             <h2>Placeholder 2</h2>
@@ -33,4 +98,64 @@
     </main>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
+<script>
+async function loadCSV(i) {
+    const response = await fetch(`Data/Chart_IP_${i}.csv`);
+    const data = await response.text();
+    
+    const rows = data.split('\n').slice(1);
+    
+    const labels = [];
+    const values = [];
+
+    rows.forEach(row => {
+        const cols = row.split(',');
+        labels.push(cols[0]);
+        values.push(parseFloat(cols[1]));
+    });
+
+    return { labels, values };
+}
+
+async function createChart() {
+    for (let i = 0;i<=9;i++) {
+
+        const csvData = await loadCSV(i);
+
+        const ctx = document.getElementById(`myChart-${i}`).getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: csvData.labels,
+                datasets: [{
+                    label: 'Connections',
+                    data: csvData.values,
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.2)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Connections to IP ${i}`
+                    }
+                }
+            }
+        });
+    } 
+}
+
+createChart();
+</script>
 </html>

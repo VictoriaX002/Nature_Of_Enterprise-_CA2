@@ -1,0 +1,22 @@
+div canvas{
+    max-width: 800px;
+    max-height: 400px;
+}
+
+.mb-4 h1{
+    color: lightskyblue;
+}
+
+.section-styling h1 {
+    color: lightskyblue;
+    margin-top: 60px;
+}
+
+.section-styling p {
+    color: black;
+    font-size: 30px;
+}
+
+.section-styling a {
+    font-size: 30px;
+}
