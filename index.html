@@ -39,8 +39,31 @@
         </section>
 
         <section class="section-styling">
-            <h1 class="display-1">Visual Analysis With Graphs</h1>
-            <p>Temporary</p>
+            <h1 class="display-1">Charts</h1>
+            <div class="spacing">
+                <p>The graph below shows the total connections to each IP across the entire period. This graph shows that each IP had a near equal number of connections, with the exception of IP ‘4’ which had way more connections than the rest, potentially showing that it has been turned into part of a botnet. </p>
+                <canvas id="main-chart"></canvas>
+                <p>The graph below shows the daily connections to IP ‘0’ across the whole period. The highest spike was around 2006-08-19, however the number of connections stabilized afterwards. </p>
+                <canvas id="myChart-0"></canvas>
+                <p>The graph below shows the daily connections to IP ‘1’ across the whole period. The amount of connections stays mostly stable, however at around 2006-08-26, the IP suddenly started getting 0 connections per day, possibly meaning that it was shut down. </p>
+                <canvas id="myChart-1"></canvas>
+                <p>The graph below shows the daily connections to IP ‘2’ across the whole period. The highest spike was around 2006-09-23, however the number of connections stabilized afterwards. </p>
+                <canvas id="myChart-2"></canvas>
+                <p>The graph below shows the daily connections to IP ‘3’ across the whole period. The graph had multiple high spikes, being at around 2006-07-15, 2006-08-19 and 2006-09-30. After the last spike, the IP started getting 0 connections daily, showing that it may have been shut down. </p>
+                <canvas id="myChart-3"></canvas>
+                <p>The graph below shows the daily connections to IP ‘4’ across the whole period. This graph shows that the connections were stable until around 2006-09-16, when a huge spike of hundreds of thousands of connections happen in one day, showing that the IP had become part of a botnet. </p>
+                <canvas id="myChart-4"></canvas>
+                <p>The graph below shows the daily connections to IP ‘5’ across the whole period. The highest spike was around 2006-07-22, after which it stabilized until 2006-09-09, when the connections to the IP daily became 0, showing it was possibly shut down. </p>
+                <canvas id="myChart-5"></canvas>
+                <p>The graph below shows the daily connections to IP ‘6’ across the whole period. This graph shows multiple high spikes at 2006-07-15, 2006-08-19 and 2006-09-23. </p>
+                <canvas id="myChart-6"></canvas>
+                <p>The graph below shows the daily connections to IP ‘7’ across the whole period. The graph had big fluctuations in the amount of daily connections. </p>
+                <canvas id="myChart-7"></canvas>
+                <p>The graph below shows the daily connections to IP ‘8’ across the whole period. The graph had multiple high spikes at 2006-07-08, 2006-09-23 and 2006-09-30 </p>
+                <canvas id="myChart-8"></canvas>
+                <p>The graph below shows the daily connections to IP ‘8’ across the whole period. The graph had big fluctuations in the number of daily connections. There was also a period from 2006-09-02 to 2006-09-16 where the machine seemed shut down. </p>
+                <canvas id="myChart-9"></canvas>
+            </div>
         </section>
 
         <section class="section-styling">
@@ -56,22 +79,6 @@
         <section class="section-styling">
             <h1 class="display-1">Conclusion</h1>
             <p>Temporary</p>
-        </section>
-
-        <section class="section-styling">
-            <h1 class="display-1">Charts</h1>
-            <div>
-                <canvas id="myChart-0"></canvas>
-                <canvas id="myChart-1"></canvas>
-                <canvas id="myChart-2"></canvas>
-                <canvas id="myChart-3"></canvas>
-                <canvas id="myChart-4"></canvas>
-                <canvas id="myChart-5"></canvas>
-                <canvas id="myChart-6"></canvas>
-                <canvas id="myChart-7"></canvas>
-                <canvas id="myChart-8"></canvas>
-                <canvas id="myChart-9"></canvas>
-            </div>
         </section>
 
         <section class="section-styling">
@@ -101,8 +108,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
 
 <script>
-async function loadCSV(i) {
-    const response = await fetch(`Data/Chart_IP_${i}.csv`);
+async function loadCSV(filename) {
+    const response = await fetch(filename)
     const data = await response.text();
     
     const rows = data.split('\n').slice(1);
@@ -122,7 +129,7 @@ async function loadCSV(i) {
 async function createChart() {
     for (let i = 0;i<=9;i++) {
 
-        const csvData = await loadCSV(i);
+        const csvData = await loadCSV(`Data/Chart_IP_${i}.csv`);
 
         const ctx = document.getElementById(`myChart-${i}`).getContext('2d');
 
@@ -134,7 +141,7 @@ async function createChart() {
                     label: 'Connections',
                     data: csvData.values,
                     borderColor: 'blue',
-                    backgroundColor: 'rgba(0, 0, 255, 0.2)',
+                    backgroundColor: 'blue',
                     tension: 0.3
                 }]
             },
@@ -156,6 +163,41 @@ async function createChart() {
     } 
 }
 
+async function createMainChart() {
+        const csvData = await loadCSV(`Data/main-chart.csv`);
+
+        const ctx = document.getElementById(`main-chart`).getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: csvData.labels,
+                datasets: [{
+                    label: 'Connections',
+                    data: csvData.values,
+                    borderColor: 'orange',
+                    backgroundColor: 'orange',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Total Connections for each IP`
+                    }
+                }
+            }
+        });
+}
+
+createMainChart();
 createChart();
 </script>
 </html>
