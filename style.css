@@ -9,7 +9,7 @@ div canvas{
 
 .section-styling h1 {
     color: lightskyblue;
-    margin-top: 60px;
+    padding-top: 60px;
 }
 
 .section-styling p {
@@ -23,4 +23,34 @@ div canvas{
 
 .spacing canvas {
     margin-bottom: 200px;
+}
+
+body {
+    padding-top: 50px;
+}
+
+ul {
+    font-size: 30px;
+}
+
+h2 {
+    color: rgb(76, 177, 240);
+}
+
+code {
+  display: block;
+  white-space: pre-wrap;  
+}
+
+.bolder {
+    font-weight: bold;
+}
+
+.navbar-brand a {
+    color: lightskyblue;
+    font-size: 30px;
+}
+
+main p {
+
 }
