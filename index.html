@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nature of Enterprise CA2 - Data Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+  </head>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<body class="container">
+    <nav class="navbar fixed-top bg-body-secondary rounded mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">DataSet Analysis</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#Dataset_Overview">Dataset Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Dataset_Cleaning_Summary">Dataset Cleaning Summary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Descriptive_Statistics_Explanation">Descriptive Statistics Explanation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Visual_Analysis_With_Graphs">Visual Analysis with Graphs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Basic_Machine_Learning">Basic Machine Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Limitations_And_Ethics">Limitations and Ethics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Conclusion">Conclusion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Links">Links</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="section-styling"id="Dataset_Overview">
+            <h1 class="display-1">Dataset Overview</h1>
+            <p>
+                The dataset focuses on summarizing network traffic data across 10 workstations whose IP’s have been coded as 0-9, across a three-month period, from 2006-07-01 to 2006-09-30. It contains 21K rows, with 4 columns: Date, L-ipn (the local IP address), r_asn (The remote asn), f:flows (count of connections for that day) The purpose was to track odd activity on each IP to determine whether the IP was compromised. 
+            </p>
+            <section></section>
+
+        <section class="section-styling"id="Dataset_Cleaning_Summary">
+            <h1 class="display-1">Dataset Cleaning Summary</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling">
+            <h1 class="display-1" id="Descriptive_Statistics_Explanation">Descriptive Statistics Explanation</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling" id="Visual_Analysis_With_Graphs">
+            <h1 class="display-1">Visual Analysis with Graphs</h1>
+            <div class="spacing">
+                <p>The graph below shows the total connections to each IP across the entire period. This graph shows that each IP had a near equal number of connections, with the exception of IP ‘4’ which had way more connections than the rest, potentially showing that it has been turned into part of a botnet. </p>
+                <canvas id="main-chart"></canvas>
+                <p>The graph below shows the daily connections to IP ‘0’ across the whole period. The highest spike was around 2006-08-19, however the number of connections stabilized afterwards. </p>
+                <canvas id="myChart-0"></canvas>
+                <p>The graph below shows the daily connections to IP ‘1’ across the whole period. The amount of connections stays mostly stable, however at around 2006-08-26, the IP suddenly started getting 0 connections per day, possibly meaning that it was shut down. </p>
+                <canvas id="myChart-1"></canvas>
+                <p>The graph below shows the daily connections to IP ‘2’ across the whole period. The highest spike was around 2006-09-23, however the number of connections stabilized afterwards. </p>
+                <canvas id="myChart-2"></canvas>
+                <p>The graph below shows the daily connections to IP ‘3’ across the whole period. The graph had multiple high spikes, being at around 2006-07-15, 2006-08-19 and 2006-09-30. After the last spike, the IP started getting 0 connections daily, showing that it may have been shut down. </p>
+                <canvas id="myChart-3"></canvas>
+                <p>The graph below shows the daily connections to IP ‘4’ across the whole period. This graph shows that the connections were stable until around 2006-09-16, when a huge spike of hundreds of thousands of connections happen in one day, showing that the IP had become part of a botnet. </p>
+                <canvas id="myChart-4"></canvas>
+                <p>The graph below shows the daily connections to IP ‘5’ across the whole period. The highest spike was around 2006-07-22, after which it stabilized until 2006-09-09, when the connections to the IP daily became 0, showing it was possibly shut down. </p>
+                <canvas id="myChart-5"></canvas>
+                <p>The graph below shows the daily connections to IP ‘6’ across the whole period. This graph shows multiple high spikes at 2006-07-15, 2006-08-19 and 2006-09-23. </p>
+                <canvas id="myChart-6"></canvas>
+                <p>The graph below shows the daily connections to IP ‘7’ across the whole period. The graph had big fluctuations in the amount of daily connections. </p>
+                <canvas id="myChart-7"></canvas>
+                <p>The graph below shows the daily connections to IP ‘8’ across the whole period. The graph had multiple high spikes at 2006-07-08, 2006-09-23 and 2006-09-30 </p>
+                <canvas id="myChart-8"></canvas>
+                <p>The graph below shows the daily connections to IP ‘8’ across the whole period. The graph had big fluctuations in the number of daily connections. There was also a period from 2006-09-02 to 2006-09-16 where the machine seemed shut down. </p>
+                <canvas id="myChart-9"></canvas>
+            </div>
+        </section>
+
+        <section class="section-styling" id="Basic_Machine_Learning">
+            <h1 class="display-1">Basic Machine Learning</h1>
+            <p>For the machine learning component of this project, a Linear Regression model was implemented to analyse the relationship between local IP numbers and network traffic flows.</p> 
+
+            <p>Linear regression is a supervised learning algorithm used to predict a numerical value by fitting a straight line to observed data. In this case:</p> 
+            <ul>
+                <li>The independent variable (X) is the local IP number (l_ipn) </li>
+                <li>The dependent variable (Y) is the number of network flows (f) </li>
+            </ul>
+            <p>The dataset was loaded using the Pandas library in Python. The model was implemented using the LinearRegression class from the Scikit-learn library. The model was trained using the .fit() method, which determines the best-fitting line using the least squares approach. </p>
+<br>
+<h2>Implementation</h2>     
+<p>The core part of the implementation is shown below:</p> 
+<code>
+    X = df[["l_ipn"]] 
+    y = df["f"] 
+ 
+    model = LinearRegression() 
+    model.fit(X, y) 
+</code>
+
+<p>After training the model, predictions were generated and visualised using Matplotlib. </p>
+
+<h2>Results:</h2>
+<p>The regression model produced the following equation: </p>
+<p>Flows = -3.13 × l_ipn + 107.16 </p>
+<p>Figure shows the regression line plotted against the actual dataset values. </p>
+<img src="Img/Figure1.png" alt="Figure 1">
+<p class="bolder">Figure : Linear Regression showing the relationship between Local IP Number and Network Flows </p>
+<h2>Interpretation of Results </h2>
+<p>From Figure 1, it is clear that most IP addresses generate very low numbers of flows, as seen by the cluster of points near zero on the graph. </p>
+<p>However, two IP addresses generate extremely high traffic values (reaching several hundred thousand connections in a single day). These values act as strong outliers in the dataset. </p>
+<p>Due to the presence of these extreme values, the regression line appears nearly flat. This indicates that there is no strong linear relationship between the IP number and the number of flows across the dataset as a whole. Instead, the data is heavily influenced by a small number of unusually large traffic values. </p>
+<p>The slope of the regression equation (-3.13) is relatively small compared to the scale of the outliers, further supporting the conclusion that IP number alone does not strongly predict network flow volume. </p>
+<h2>Relevance to Cybersecurity </h2>
+<p>In a cybersecurity context, extreme deviations from normal traffic patterns may indicate unusual or suspicious activity. The very large flow values observed for certain IP addresses could represent abnormal network behaviour, potential system misconfiguration, or possible malicious activity. </p>
+<p class="bolder">Code for Regression Algorithm</p>
+<code>
+ # Very Basic Linear Regression + Logistic Regression 
+# Dataset: cs448b_ipasn.csv 
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt 
+from sklearn.linear_model import LinearRegression 
+
+# 1) Load the data 
+
+df= pd.read_csv("cs448b_ipasn.csv") 
+df.columns = df.columns.str.strip() 
+
+# define input x and output y 
+
+X = df[["l_ipn"]] 
+y = df["f"] 
+
+#create and train model 
+model=LinearRegression() 
+model.fit(X,y) 
+
+# Smooth line 
+x_line = np.linspace(X["l_ipn"].min(), X["l_ipn"].max(), 100).reshape(-1, 1) 
+y_line = model.predict(x_line) 
+
+#results 
+plt.figure() 
+plt.scatter(X["l_ipn"] , y) 
+plt.plot(x_line, y_line) 
+plt.Xlabel("local IP Number") 
+plt.ylabel("number of flows") 
+plt.title("linear regression: IP vs Network Flowa") 
+plt.show() 
+
+#print regression equation 
+print("LINEAR REGRESSION EQUATION:") 
+print(f"Flows = {model.coef_[0]:.2f} * l_ipn + {model.intercept_:.2f}") 
+</code>
+</section>
+
+        <section class="section-styling" id="Limitations_And_Ethics">
+            <h1 class="display-1">Limitations and Ethics</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling" id="Conclusion">
+            <h1 class="display-1">Conclusion</h1>
+            <p>Temporary</p>
+        </section>
+
+        <section class="section-styling" id="Links">
+            <h1 class="display-1">Links</h1>
+            <ul>
+                <li>
+                    <a href="https://tudublin-my.sharepoint.com/:w:/r/personal/x00225508_mytudublin_ie/_layouts/15/Doc.aspx?sourcedoc=%7BFAE2A4D0-B47D-4688-9C64-FC9823C881C0%7D&file=Nature%20of%20Enterprise%20CA%202%20Group%201.docx&action=default&mobileredirect=true&DefaultItemOpen=1&wdOrigin=APPHOME-WEB.DIRECT%2CAPPHOME-WEB.FILEBROWSER.RECENT&wdPreviousSession=bd68194e-2b6e-4e69-96f3-2fb572efc286&wdPreviousSessionSrc=AppHomeWeb&ct=1771609480531" target="_blank">Word Doc of Report</a>
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/datasets/crawford/computer-network-traffic" target="_blank">Link to Original Dataset</a>
+                </li>
+                <li>
+                    <a href="https://tudublin-my.sharepoint.com/:x:/r/personal/x00225508_mytudublin_ie/_layouts/15/Doc.aspx?sourcedoc=%7B2C13F95A-E7C1-4380-9DC1-8D9C79A8FDCE%7D&file=Nature%20of%20Enterprise%20CA%202%20Group%201.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&wdOrigin=WAC.EXCEL.HOME-BUTTON%2CAPPHOME-WEB.FILEBROWSER.RECENT&wdPreviousSession=c5a4552e-daf4-42ec-9fd4-c2d48c428b68&wdPreviousSessionSrc=AppHomeWeb&ct=1771606153655" target="_blank">Link to Excel Sheet</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
+<script>
+async function loadCSV(filename) {
+    const response = await fetch(filename)
+    const data = await response.text();
+    
+    const rows = data.split('\n').slice(1);
+    
+    const labels = [];
+    const values = [];
+
+    rows.forEach(row => {
+        const cols = row.split(',');
+        labels.push(cols[0]);
+        values.push(parseFloat(cols[1]));
+    });
+
+    return { labels, values };
+}
+
+async function createChart() {
+    for (let i = 0;i<=9;i++) {
+
+        const csvData = await loadCSV(`Data/Chart_IP_${i}.csv`);
+
+        const ctx = document.getElementById(`myChart-${i}`).getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: csvData.labels,
+                datasets: [{
+                    label: 'Connections',
+                    data: csvData.values,
+                    borderColor: 'blue',
+                    backgroundColor: 'blue',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Connections to IP ${i}`
+                    }
+                }
+            }
+        });
+    } 
+}
+
+async function createMainChart() {
+        const csvData = await loadCSV(`Data/main-chart.csv`);
+
+        const ctx = document.getElementById(`main-chart`).getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: csvData.labels,
+                datasets: [{
+                    label: 'Connections',
+                    data: csvData.values,
+                    borderColor: 'orange',
+                    backgroundColor: 'orange',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Total Connections for each IP`
+                    }
+                }
+            }
+        });
+}
+
+createMainChart();
+createChart();
+</script>
+</html>

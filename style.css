@@ -1,0 +1,56 @@
+div canvas{
+    max-width: 800px;
+    max-height: 400px;
+}
+
+.mb-4 h1{
+    color: lightskyblue;
+}
+
+.section-styling h1 {
+    color: lightskyblue;
+    padding-top: 60px;
+}
+
+.section-styling p {
+    color: black;
+    font-size: 30px;
+}
+
+.section-styling a {
+    font-size: 30px;
+}
+
+.spacing canvas {
+    margin-bottom: 200px;
+}
+
+body {
+    padding-top: 50px;
+}
+
+ul {
+    font-size: 30px;
+}
+
+h2 {
+    color: rgb(76, 177, 240);
+}
+
+code {
+  display: block;
+  white-space: pre-wrap;  
+}
+
+.bolder {
+    font-weight: bold;
+}
+
+.navbar-brand a {
+    color: lightskyblue;
+    font-size: 30px;
+}
+
+main p {
+
+}
