@@ -1,0 +1,9 @@
+Machine learning/README.md
+
+## Machine learning section 
+
+linear regression was applied to predict network flowas(f) using l_ipn as the feature
+
+Regression Equation:
+Flows = -3.13 × l_ipn + 107.16
+
