@@ -1,4 +1,7 @@
-# Very Basic Linear Regression + Logistic Regression
+##machine learning code 
+
+
+# Linear Regression 
 # Dataset: cs448b_ipasn.csv
 import pandas as pd
 import numpy as np
