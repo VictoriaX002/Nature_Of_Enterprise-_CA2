@@ -7,3 +7,6 @@ linear regression was applied to predict network flowas(f) using l_ipn as the fe
 Regression Equation:
 Flows = -3.13 × l_ipn + 107.16
 
+## Regression Graph
+
+![Linear Regression Graph](Figure_1.png)
