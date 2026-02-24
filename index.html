@@ -179,7 +179,39 @@ print(f"Flows = {model.coef_[0]:.2f} * l_ipn + {model.intercept_:.2f}")
 
         <section class="section-styling" id="Conclusion">
             <h1 class="display-1">Conclusion</h1>
-            <p>Temporary</p>
+            <p>This project analayzes network traffic data collected from 10 workstations (coded 0-9) over a three month period - July 1st -September 30th 2006.</p>
+            <h2>Objective</h2>
+            <p>The primary goal of this project was to detect unusual or suspicious activity patterns across machines and determine whether any workstation may have been compromised.</p>
+            <h2>Dataset Cleaning and Preparation</h2>
+            <p>Before analysis, the dataset was prepared by:</p>
+            <p>- Removing formatting inconsistencies in column names</p>
+            <p>- Verifying date formatting and chronological ordering</p>
+            <p>- Checking for missing or zero value anomalies</p>
+            <p>- Ensuring numeric consistency in flow counts</p>
+            <p>This ensured reliable statistical analysis and machine learning modeling</p>
+            <h2>Visual Analysis</h2>
+            <p>Across the full 3 month period:</p>
+            <p>- Most IP addresses recieved relatively equal traffic volumes</p>
+            <p>- IP '4' showed significantly higher total connections</p>
+            <p>- This deviation strongly suggests abnormal behaviour</p>
+            <h2>Machine Learning Analysis</h2>
+            <p>A linear Regression model was implemented to evaluate whether IP number predicts traffic volume: <br>Flows = -3.13 × l_ipn + 107.16 </p>
+            <p>- Most IPs generate low traffic volumes, except a few extreme outliers</p>
+            <p>- The slope is small, showing that IP number alone does not predict traffic volume</p>
+            <p>- Outliers like IP ‘4’ dominate the dataset, highlighting anomalous behavior</p>
+            <h2>Cybersecurity Implications</h2>
+            <p>High traffic spikes may indicate botnets or automated attacks, while periods of zero traffic may signal shutdown</p>
+            <p>Behavioral deviations are often more critical than overall traffic averages</p>
+            <p>Visual analytics combined with machine learning enhances detection of unusual network activity</p>
+            <h2>Limitations and Future Work</h2>
+            <p>Linear regression is sensitive to extreme values and IP number is not a strong predictor of flow volumes</p>
+            <p>Future improvements could include:</p>
+            <p>   - Time series anomaly detection</p>
+            <p>   - Clustering or Isolation Forest models</p>
+            <p>   - Classification models to flag potentially compromised machines</p>
+            <h2>Conclusion</h2>
+            <p>This analysis successfully identified network anomalies and highlighted the importance of monitoring traffic deviations</p>
+            <p>The most notable finding was the extreme spike on IP 4, suggesting botnet participation, while other IPs showed shutdown periods a practical approach to detecting unusual or suspicious network activity in cybersecurity contexts</p>
         </section>
 
         <section class="section-styling" id="Links">
