@@ -124,12 +124,21 @@
 <img src="Img/Figure1.png" alt="Figure 1">
 <p class="bolder">Figure : Linear Regression showing the relationship between Local IP Number and Network Flows </p>
 <h2>Interpretation of Results </h2>
-<p>From Figure 1, it is clear that most IP addresses generate very low numbers of flows, as seen by the cluster of points near zero on the graph. </p>
-<p>However, two IP addresses generate extremely high traffic values (reaching several hundred thousand connections in a single day). These values act as strong outliers in the dataset. </p>
-<p>Due to the presence of these extreme values, the regression line appears nearly flat. This indicates that there is no strong linear relationship between the IP number and the number of flows across the dataset as a whole. Instead, the data is heavily influenced by a small number of unusually large traffic values. </p>
-<p>The slope of the regression equation (-3.13) is relatively small compared to the scale of the outliers, further supporting the conclusion that IP number alone does not strongly predict network flow volume. </p>
+<p>From Figure 1, it is clear that most IP addresses generate very low numbers of flows, as seen by the cluster of
+    points near zero on the graph. </p>
+<p>However, two IP addresses generate extremely high traffic values (reaching several hundred thousand connections in a
+    single day). These values act as strong outliers in the dataset. </p>
+<p>Due to the presence of these extreme values, the regression line appears nearly flat. This indicates that there is no
+    strong linear relationship between the IP number and the number of flows across the dataset as a whole. Instead, the
+    data is heavily influenced by a small number of unusually large traffic values. </p>
+<p>The slope of the regression equation (-3.13) is relatively small compared to the scale of the outliers, further
+    supporting the conclusion that IP number alone does not strongly predict network flow volume. </p>
 <h2>Relevance to Cybersecurity </h2>
-<p>In a cybersecurity context, extreme deviations from normal traffic patterns may indicate unusual or suspicious activity. The very large flow values observed for certain IP addresses could represent abnormal network behaviour, potential system misconfiguration, or possible malicious activity. </p>
+<p>In a cybersecurity context, extreme deviations from normal traffic patterns may indicate unusual or suspicious
+    activity. The very large flow values observed for certain IP addresses could represent abnormal network behaviour,
+    potential system misconfiguration, or possible malicious activity. </p>
+<p>Although linear regression helps visualise overall trends, it does not fully capture irregular spikes in network
+    traffic. More advanced models or anomaly detection techniques may be required for deeper analysis </p>
 <p class="bolder">Code for Regression Algorithm</p>
 <code>
  # Very Basic Linear Regression + Logistic Regression 
