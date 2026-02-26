@@ -183,8 +183,15 @@ print(f"Flows = {model.coef_[0]:.2f} * l_ipn + {model.intercept_:.2f}")
 
         <section class="section-styling" id="Limitations_And_Ethics">
             <h1 class="display-1">Limitations and Ethics</h1>
-            <p>Temporary</p>
-        </section>
+            <p>This project gave us insights into the network traffic dataset. The machine learning model used was a linear
+                regression, and as seen in the results, it didnt work very well for this dataset. This was largely because the data
+                had a few outliers, specifically IP 4. The regression line was nearly flat and not able to accurately predict
+                traffic volumes. In the future we would need to use more advanced methods for better results. Network traffic
+                monitoring also brings up privacy concerns, for example in a workplace employees may not be aware that their network
+                traffic and internet activity are being monitored. This is an invasion of privacy. Organisations which monitor
+                network traffic should be transparent about the data collected with employees and why, furthermore, they should
+                follow data protection laws like GDPR to make sure personal information is handled correctly. </p>
+            </section>
 
         <section class="section-styling" id="Conclusion">
             <h1 class="display-1">Conclusion</h1>
