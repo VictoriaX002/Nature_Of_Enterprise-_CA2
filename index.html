@@ -61,10 +61,13 @@
             <p>Before analysing the dataset, several data preparation steps were required to ensure the data could be used correctly in Python and visualization tools. The dataset was imported the panda library, which allows tabular data to be processed efficiently .so during this stage, column names were checked and cloned to ensure the matched the expected variable names used in the code.</p>
             <p>One small issue encountered was extra spacing in column names, which can cause errors when accessing data. This was resolved using the following command: </p>
             <code>df.columns = df.columns.str.strip() </code>
+            <br>
             <p>This removes unnecessary whitespace from column headers. </p>
             <p>The relevant columns used for the machine learning model were: </p>
-            <p>l_ipn – representing the local IP number </p>
-            <p>f – representing the number of network flows </p>
+            <ul>
+                <li>l_ipn – representing the local IP number</li>
+                <li>f – representing the number of network flows </li>
+            </ul>
             <p> These two columns were selected because the goal of the machine learning model was to analyze whether local IP numbers could predict network traffic volume. </p>
             <p>No major missing values were found in the datasets, so no rows needed to be removed. After cleaning, the dataset was ready for statical analysis, visualization , and Machine learning modeling. </p>
         </section>
