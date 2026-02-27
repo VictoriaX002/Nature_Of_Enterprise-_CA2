@@ -58,7 +58,15 @@
 
         <section class="section-styling"id="Dataset_Cleaning_Summary">
             <h1 class="display-1">Dataset Cleaning Summary</h1>
-            <p>Temporary</p>
+            <p>Before analysing the dataset, several data preparation steps were required to ensure the data could be used correctly in Python and visualization tools. The dataset was imported the panda library, which allows tabular data to be processed efficiently .so during this stage, column names were checked and cloned to ensure the matched the expected variable names used in the code.</p>
+            <p>One small issue encountered was extra spacing in column names, which can cause errors when accessing data. This was resolved using the following command: </p>
+            <code>df.columns = df.columns.str.strip() </code>
+            <p>This removes unnecessary whitespace from column headers. </p>
+            <p>The relevant columns used for the machine learning model were: </p>
+            <p>l_ipn – representing the local IP number </p>
+            <p>f – representing the number of network flows </p>
+            <p> These two columns were selected because the goal of the machine learning model was to analyze whether local IP numbers could predict network traffic volume. </p>
+            <p>No major missing values were found in the datasets, so no rows needed to be removed. After cleaning, the dataset was ready for statical analysis, visualization , and Machine learning modeling. </p>
         </section>
 
         <section class="section-styling">
@@ -114,7 +122,7 @@
     model = LinearRegression() 
     model.fit(X, y) 
 </code>
-
+<p>The .fit() function calculates the best regression line using the least squares method, which minimises the difference between predicted and actual values. </p>
 <p>After training the model, predictions were generated and visualised using Matplotlib. </p>
 
 <h2>Results:</h2>
@@ -134,9 +142,13 @@
 <p>The slope of the regression equation (-3.13) is relatively small compared to the scale of the outliers, further
     supporting the conclusion that IP number alone does not strongly predict network flow volume. </p>
 <h2>Relevance to Cybersecurity </h2>
-<p>In a cybersecurity context, extreme deviations from normal traffic patterns may indicate unusual or suspicious
-    activity. The very large flow values observed for certain IP addresses could represent abnormal network behaviour,
-    potential system misconfiguration, or possible malicious activity. </p>
+<p>In a cybersecurity context, unusual spikes in network traffic may indicate suspicious activity or compromised systems.  </p>
+<p>The extremely high traffic values observed for certain IP addresses could represent: </p>
+<ul>
+    <li>abnormal network behaviour </li>
+    <li>misconfigured systems </li>
+    <li>malicious activity such as botnet traffic </li>
+</ul>
 <p>Although linear regression helps visualise overall trends, it does not fully capture irregular spikes in network
     traffic. More advanced models or anomaly detection techniques may be required for deeper analysis </p>
 <p class="bolder">Code for Regression Algorithm</p>
